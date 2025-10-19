@@ -10,11 +10,28 @@ on:
       extensions:
         description: 'Comma-separated extensions (e.g. intl,mbstring,curl,exif,opcache)'
         required: false
-        default: 'intl,mbstring,curl,exif,opcache,zip,xml'
+        default: intl, mbstring, curl, exif, opcache, zip, xml
+
       ini-values:
         description: 'Comma-separated ini values (e.g. memory_limit=512M,display_errors=1)'
         required: false
-        default: 'memory_limit=512M,display_errors=1,error_reporting=E_ALL,post_max_size=64M,upload_max_filesize=64M,max_execution_time=120,opcache.enable=1,opcache.memory_consumption=128,opcache.interned_strings_buffer=8,opcache.max_accelerated_files=4000,opcache.revalidate_freq=0,opcache.enable_cli=1'
+        default: "
+          memory_limit=512M,
+          display_errors=1,
+          error_reporting=E_ALL,
+          post_max_size=64M,
+          upload_max_filesize=64M,
+          max_execution_time=120,
+          opcache.enable=1,
+          opcache.enable_cli=1,
+          opcache.jit=tracing,
+          opcache.jit_buffer_size=128M,
+          opcache.memory_consumption=256,
+          opcache.interned_strings_buffer=32,
+          opcache.max_accelerated_files=20000,
+          opcache.revalidate_freq=0,
+          opcache.validate_timestamps=0
+          "
 
 jobs:
   build-windows:
